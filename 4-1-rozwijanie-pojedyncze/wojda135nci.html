@@ -11,7 +11,7 @@
         padding: 10px;
         background: #e8fff1;     
 		margin: 0 auto; /* wypośrodkowanie pojemnika */
-		color: white; /* zmiana koloru czcionki */
+		color: blue; /* zmiana koloru czcionki */
     }
     #minitresc {
         display: none;
@@ -37,11 +37,14 @@ function expandCollapse()
         expanded = false;
         document.getElementById('minitresc').style.display = 'none';        
         document.getElementById('ikona').innerHTML = '+';
+		iloscKliklniec--;
     } else {
         expanded = true;
+		iloscKliklniec++;
         document.getElementById('minitresc').style.display = 'block';                
         document.getElementById('minitresc').innerHTML = 'Sprawdziłeś już jak to działa: <span class="red">' +iloscKliklniec + '</span> razy. / by Łukasz';
-        document.getElementById('ikona').innerHTML = '-';        
+        document.getElementById('ikona').innerHTML = '-'; 
+		iloscKliklniec++;
     }
 }
 
