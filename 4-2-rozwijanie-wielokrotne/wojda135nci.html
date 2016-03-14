@@ -9,8 +9,10 @@
         width: 300px;
         border: 1px solid black;
         padding: 10px;
-        background: #e8fff1;        
-        margin: 10px;
+        background: #9966ff;        
+        margin: 30px auto;
+		color: white;
+		
     }
     .minitresc {
         display: none;
@@ -18,14 +20,19 @@
     }
     a {
         width: 20px;
+		
         font-family: "Courier New", monospace;
         text-decoration: none;
     }
+	span { /* dodanie wlasciwosci do znacznika span, kolor wielkosć czcionki 2x podstawowa */
+		color: #ffffcc;
+		font-size:2em; 
+	}
     </style>
     
 <script type="text/javascript">
 
-function expandCollapse(Id)
+function expandCollapse(Id, number)
 {
     var n = Id.parentNode.childNodes[2];
     if (n.style.display == 'block') {
@@ -33,7 +40,7 @@ function expandCollapse(Id)
         Id.innerHTML = '+';
     } else {
         n.style.display = 'block';                
-        n.innerHTML = 'A B C...';
+        n.innerHTML = 'To jest pojemnik nr: '+number;
         Id.innerHTML = '-';        
     }
 }
@@ -44,15 +51,15 @@ function expandCollapse(Id)
   </head>
 <body>
 
-<div class="tresc"><a href="#" onclick="expandCollapse(this);">+</a><span>Pojemnik na treść</span><div></div></div>
-<div class="tresc"><a href="#" onclick="expandCollapse(this);">+</a><span>Pojemnik na treść</span><div></div></div>
-<div class="tresc"><a href="#" onclick="expandCollapse(this);">+</a><span>Pojemnik na treść</span><div></div></div>
-<div class="tresc"><a href="#" onclick="expandCollapse(this);">+</a><span>Pojemnik na treść</span><div></div></div>
-<div class="tresc"><a href="#" onclick="expandCollapse(this);">+</a><span>Pojemnik na treść</span><div></div></div>
-<div class="tresc"><a href="#" onclick="expandCollapse(this);">+</a><span>Pojemnik na treść</span><div></div></div>
-<div class="tresc"><a href="#" onclick="expandCollapse(this);">+</a><span>Pojemnik na treść</span><div></div></div>
-<div class="tresc"><a href="#" onclick="expandCollapse(this);">+</a><span>Pojemnik na treść</span><div></div></div>
-<div class="tresc"><a href="#" onclick="expandCollapse(this);">+</a><span>Pojemnik na treść</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this,1);">+</a><span>Pojemnik na treść</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this,2);">+</a><span>Pojemnik na treść</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this,3);">+</a><span>Pojemnik na treść</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this,4);">+</a><span>Pojemnik na treść</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this,5);">+</a><span>Pojemnik na treść</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this,6);">+</a><span>Pojemnik na treść</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this,7);">+</a><span>Pojemnik na treść</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this,8);">+</a><span>Pojemnik na treść</span><div></div></div>
+<div class="tresc"><a href="#" onclick="expandCollapse(this,9);">+</a><span>Pojemnik na treść</span><div></div></div>
 
 </body>
 </html>
