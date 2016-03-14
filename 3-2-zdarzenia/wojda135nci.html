@@ -4,12 +4,29 @@
     <title>Ajax. Kurs od podstaw. Część pierwsza: Wprowadzenie. Przykład #3.2</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style type="text/css">
-    li {
+    .zdarzenia li {
         padding: 5px;
         border: 1px solid black;
         width: 300px;
         margin: 5px;
     }
+	
+	.red {
+		border: 2px solid red;
+		background: #fef4e0;
+	}
+	
+	.green {
+		border: 2px solid green;
+		background: #d8fee6;
+	}
+	
+	.blue {
+		border: 2px solid blue;
+		background: #d6edfe;
+	}
+	
+	
     </style>
     
 
@@ -18,28 +35,24 @@
 function onclickHandler()
 {
     var el;
-    el = document.getElementById('tresc');
-    el.innerHTML = 'Klikniecie w element, by Łukasz';
-    el.style.border = '4px solid red';
-    el.style.background = '#fef4e0';
+    el = document.getElementById('lista_zdarzen');
+    el.innerHTML = el.innerHTML + '<li class="red">Klikniecie w element, by Łukasz</li>'+el.innerHTML;
+
 }    
 
 function onmouseoverHandler()
 {
     var el;
-    el = document.getElementById('tresc');
-    el.innerHTML = 'Wskaźni myszy nad elementem ;) by Łukasz';
-    el.style.border = '2px solid green';
-    el.style.background = '#d8fee6';
+    el = document.getElementById('lista_zdarzen');
+    el.innerHTML = '<li class="green">Wskaźni myszy nad elementem ;) by Łukasz</li>' +el.innerHTML;
 }    
 
 function onmouseoutHandler()
 {
     var el;
-    el = document.getElementById('tresc');
-    el.innerHTML = 'Wskaźnik myszy poza elementem ;( by Łukasz';
-    el.style.border = '2px solid blue';
-    el.style.background = '#d6edfe';
+    el = document.getElementById('lista_zdarzen');
+    el.innerHTML = '<li class="blue">Wskaźnik myszy poza elementem ;( by Łukasz</li>'+el.innerHTML;
+
 }    
 
 </script>    
@@ -48,14 +61,15 @@ function onmouseoutHandler()
   </head>
 <body>
 
-<ul>
+<ul class="zdarzenia">
 <li onclick="onclickHandler();">onclick</li>
 <li onmouseover="onmouseoverHandler();">onmouseover</li>
 <li onmouseout="onmouseoutHandler();">onmouseout</li>
 </ul>
 
-<div id="tresc">Tekst tekst tekst...</div>
+<ul id="lista_zdarzen">
 
+</ul>
 </body>
 </html>
 
