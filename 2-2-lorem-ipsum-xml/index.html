@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
   <head>
     <title>Ajax. Kurs od podstaw. Część pierwsza: Wprowadzenie. Przykład #2.2</title>
@@ -44,6 +44,19 @@ function processResponse()
 {
     if (r.readyState == 4) {
         if (r.status == 200) {
+		
+		/*
+		Możliwe są następujące wartości readyState:
+
+		0 (niezainicjowane)
+		1 (w trakcie pobierania)
+		2 (pobrano)
+		3 (interaktywne)
+		4 (gotowe) 
+		
+		źródło: https://developer.mozilla.org/pl/docs/AJAX/Na_pocz%C4%85tek
+		
+		*/
         
             //var x1 = r.responseXML;
             //var x2 = x1.getElementsByTagName('tekst');
