@@ -70,28 +70,14 @@ var r;
 r = getXMLHttpRequest();    
 
 
-var opis= new Array(20);
-opis[0]  = 'Producent';
-opis[1]  = 'Model';
-opis[2]  = 'Typ';
-opis[3]  = 'MPx';
-opis[4]  = 'LCD';
-opis[5]  = 'Typ matrycy';
-opis[6]  = 'Wymiary matrycy';
-opis[7]  = 'Pamięć';
-opis[8]  = 'Mocowanie obiektywu';
-opis[9]  = 'Mnożnik ogniskowej';
-opis[10] = 'Stabilizacja obrazu';
-opis[11] = 'Migawka';
-opis[12] = 'Czułość';
-opis[13] = 'Autobracketing';
-opis[14] = 'Podgląd głębi ostrości';
-opis[15] = 'Balans bieli';
-opis[16] = 'Zdjęcia seryjne';
-opis[17] = 'Pole widzenia';
-opis[18] = 'Korpus';
-opis[19] = 'Baterie';
-opis[20] = 'Cena';
+var opis= new Array(6);
+opis[0]  = 'nazwa';
+opis[1]  = 'węglowodany';
+opis[2]  = 'tłuszcz';
+opis[3]  = 'białko';
+opis[4]  = 'Wartość energetyczna (kcal)';
+opis[5]  = 'magnez';
+
 
 var element;
 
@@ -100,11 +86,11 @@ function processResponse()
     if (r.readyState == 4) {
         if (r.status == 200) {
         
-            var x = r.responseXML.getElementsByTagName('aparat')[0].childNodes;            
+            var x = r.responseXML.getElementsByTagName('owoc')[0].childNodes;            
 
             var tmp = '';
             
-            for (i = 2; i < x.length; i++) {
+            for (i = 1; i < x.length; i++) {
                 tmp = tmp
 		    + '<strong>' + opis[i] + ':</strong> '
 		    + x[i].childNodes[0].nodeValue
@@ -138,50 +124,16 @@ function expandCollapse(Id, Numer)
     
   </head>
 <body>
+Nr 18, więc owoce ; )
+<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 1);">+</a> Jabłko</h3><div></div></div>
 
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 1);">+</a> Canon EOS 20D</h3><div></div></div>
+<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 2);">+</a> Banan</h3><div></div></div>
 
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 2);">+</a> Canon EOS 30D</h3><div></div></div>
+<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 3);">+</a> Porzeczka</h3><div></div></div>
 
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 3);">+</a> Canon EOS 350D</h3><div></div></div>
+<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 4);">+</a> Truskawka</h3><div></div></div>
 
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 4);">+</a> Canon EOS-400</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 5);">+</a> Fujsum Finepix S3 Pro</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 6);">+</a> Nikon D200</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 7);">+</a> Nikon D 40x</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 8);">+</a> Nikon D80</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 9);">+</a> Nikon D40</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 10);">+</a> Olympus E-1</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 11);">+</a> Olympus E-330</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 12);">+</a> Olympus E-400</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 13);">+</a> Olympus EOS 350D</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 14);">+</a> Olympus E-510</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 15);">+</a> Olympus E-300</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 16);">+</a> Olympus E-410</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 17);">+</a> Pentax K10D</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 18);">+</a> PENTAX K100D/K11OD</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 19);">+</a> Pentax K100D</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 20);">+</a> Samsung GX-10</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 21);">+</a> Sigma SD14</h3><div></div></div>
-
-<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 22);">+</a> SONY A100</h3><div></div></div>
+<div class="tresc"><h3><a href="#" onclick="expandCollapse(this, 5);">+</a> Pomarańcza</h3><div></div></div>
 
 
 
