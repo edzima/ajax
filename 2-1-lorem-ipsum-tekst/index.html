@@ -45,10 +45,14 @@ function processResponse()
         if (r.status == 200) {
             alert('Tekst z serwera: ' + r.responseText);
         };
+		if (r.status == 0)
+		{
+			alert("Brak wskazanego pliu");
+		}
     };
 }
 
-r.open('GET', 'wojda.txt', true);
+r.open('GET', 'wojdaa.txt', true);
 r.onreadystatechange = processResponse;
 r.send(null);
         
