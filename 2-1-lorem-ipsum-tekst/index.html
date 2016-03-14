@@ -42,17 +42,22 @@ r = getXMLHttpRequest();
 function processResponse()
 {
     if (r.readyState == 4) {
-        if (r.status == 200) {
+        if (r.status == 200) { //
             alert('Tekst z serwera: ' + r.responseText);
         };
-		if (r.status == 0)
-		{
-			alert("Brak wskazanego pliu");
+		else { // wystapienie problemu z zapytaniem
+		/* 
+		najczęstszymi błedami mogą być: 404 (Nie odnaleziono) lub 500 (Wewnętrzny błąd serwera)
+		
+		lista wszystkich kodów błedów znajduję się pod adresem https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+		
+		*/
+		alert('Problem z zapytaniem, kod bledu: ' +r.status);
 		}
     };
 }
 
-r.open('GET', 'wojdaa.txt', true);
+r.open('GET', 'wojda.txt', true);
 r.onreadystatechange = processResponse;
 r.send(null);
         
