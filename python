@@ -1,29 +1,37 @@
 file = open('dane.txt', 'r').read()
 lines = file.split('\n')
 dane =[]
+from random import randint
+
 for line in lines:
     dane.append(line.split(' '))
-
-print dane
-
-nWierszy = len(dane)
-
-
-def f1 (wiersz,kolumna,s):
-    if(wiersz<nWierszy-1):    
-        print dane[wiersz][kolumna]
-        print dane[wiersz+1][kolumna]
-        print dane[wiersz+1][kolumna+1]
-        s = s+ int(dane[wiersz][kolumna])+int(dane[wiersz+1][kolumna])+int(dane[wiersz+1][kolumna+1])
-        print s
-
-suma =0
-for wiersz in range(0,nWierszy):
-    for kolumna in range(0,len(dane[wiersz])):
-        f1(wiersz,kolumna, suma)
-        
-
-print suma
+dany=[]
+for i in range(0,20):
+    linia=[]
+    for j in range(2**i):
+        linia.append(randint(0,9))
+    dane.append(linia)
 
 
+wysokosc = len(dane)
+sumy = [0]
+global maxS
+maxS=0
+def liczSume(g,l,s):
+    if(g>0):
+        global maxS
+        if(g==wysokosc-1):
+            s = s + int(dane[g][l]) + int(dane[g-1][l/2])
+        else:
+            s = s + int(dane[g-1][l/2])
+        liczSume(g-1,l/2,s)
+    else:
+        if(maxS<s):
+            maxS=s
 
+for i in range(len(dane[wysokosc-1])):
+    suma = 0
+    liczSume(wysokosc-1,i,suma)
+print maxS
+
+    
