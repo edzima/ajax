@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cennik</title>
+<link href="site.css" rel="stylesheet">
+<style>
+form {
+	padding: 10px 10px 10px 10px;
+}
+label {
+	display: inline-block;
+	width: 100px;
+	text-align:right;
+	margin: 0 15px 0 0;
+
+}
+input {
+	font-size: 14px;
+}
+#button {
+	margin-left: 115px;
+}
+</style>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	// dodanie wartosci do select
+	var $rodzaje = $('#rodzaje');
+	
+	var cennik = new Array();
+	$.ajax({
+			type     : "GET",
+			url      : "cennik.php",
+			data     : {'rodzaj' : '-1'},
+			dataType : 'json',
+			success : function(data) {
+
+				$.each(data,function(dane, value) {
+					$rodzaje.prepend('<option value="' + value.rodzaj + '">' + value.rodzaj + '</option>');
+					cennik[value.rodzaj]=[value.cena, value.metraz];
+					console.log(value.metraz);
+				});
+
+			},
+			error : function(){
+				$('.main').append("Podaj poprawnie dane");
+			}
+	});
+
+	$rodzaje.change(function(){
+		var wartosc = $(this).find('option:selected').val();
+		$('#cena').val(cennik[wartosc][0]);
+		$('#metraz').val(cennik[wartosc][1]);
+		
+		// czytanie z skryptu ; ) 
+		
+		$.ajax({
+			type	: "GET",
+			url		: "cennik.php",
+			data	: {'rodzaj' : wartosc},
+			dataType :'json',
+			success : function(data) {
+				$('#cena').val(data.cena);
+				$('#metraz').val(data.metraz);
+			}
+		});
+		
+		
+	});// end change 
+
+
+	$('#login').submit(function(evt){ 
+	evt.preventDefault();
+		var formData = $(this).serialize();
+		if($('#rodzaj').val()!='')
+		{
+
+			$.ajax({
+				type     : "GET",
+				url      : "cennik.php",
+				data     : nazwa,
+				dataType : 'json',
+				success : function(data) {
+
+					$.each(data,function(dane, value) { 
+					console.log(value.cena);
+					});
+					
+				},
+				error : function(){
+					$('.main').append("Podaj poprawnie dane");
+				}
+			}); // end ajax 
+		}
+		
+	}); //end submit #login
+
+			
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRÊCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+			<h1>Cennik mieszkañ z DB</h1>
+			<div id="formwrapper">
+				<form method="get" action="cennik.php" id="cennik">
+					<p>
+						<label for="rodzaje">Wybierz rodzaj:</label>
+						<select id="rodzaje"> </select>
+					</p>
+					<p>
+						<label for="cena">Cena: </label>
+						<input type="text" name="cena" id="cena" disabled>
+					</p>
+					<p>
+						<label for="metraz">Metra¿: </label>
+						<input type="text" name="metraz" id="metraz" disabled>
+					</p>
+					<p>
+						<input type="submit" name="button" id="button" value="Wyœlij" >
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript AJAX i  jQuery. | EdziMa</p>
+  </footer>
+</div>
+</body>
+</html>
